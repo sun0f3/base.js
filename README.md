@@ -6,6 +6,7 @@
 ## Usage(example)
 ```javascript
   var Point = Base.extend({
+
     defaults: {
       size:  80,
       color: 'red',
@@ -13,6 +14,7 @@
       y: 0,
       el: '<div class="point"></div'
     },
+
     initialize: function(){
     },
 
@@ -25,7 +27,7 @@
 
 
   var Scene = Base.extend({
-    $el: $('#scene'),
+    $el: $('#scene'),  
 
     defaults: {
       points: [],
@@ -33,9 +35,10 @@
 
     initialize: function(){
       var point1, point2;
-      point1 = new Point({x: 100, y: 100})
-      this.points.push(new Point({x: 100, y: 100}));
-      this.points.push(new Point({x: 50, y: 200, color: 'blue'}));
+      point1 = new Point({x: 100, y: 100}) // color will be 'red'
+      point2 = new Point({x: 200, y: 150, color: 'blue'})
+      _add(point1);
+      _add(point2);
     },
 
     redraw: function(){
@@ -50,4 +53,6 @@
     
     }
   });
+
+  new Scene();
 ```
